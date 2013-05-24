@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Common\\": "zf2-common/src"
+            "Common\\": "zf2-common"
         }
     }
 }
