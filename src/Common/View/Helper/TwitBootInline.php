@@ -1,9 +1,8 @@
 <?php
-namespace Job\View\Helper;
+namespace Common\View\Helper;
 
 use Zend\Stdlib\DateTime;
 use Zend\View\Helper\AbstractHelper;
-use Job\Form\ItemForm;
 
 class Form extends AbstractHelper
 {
