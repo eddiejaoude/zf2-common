@@ -4,6 +4,7 @@ return array(
         'invokables' => array(
             'formHelper' => 'Common\View\Helper\TwitBootInline',
             'messages'   => 'Common\View\Helper\TwitBootMessages',
+            'date'       => 'Common\View\Helper\Date',
         ),
     ),
 
