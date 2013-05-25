@@ -18,6 +18,9 @@
     "autoload": {
         "psr-0": {
             "Common\\": "src"
-        }
+        },
+        "classmap": [
+            "Module.php"
+        ]
     }
 }
