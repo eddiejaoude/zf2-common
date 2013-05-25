@@ -19,6 +19,5 @@
         "psr-0": {
             "Common\\": "src"
         }
-    },
-    "target-dir": "src"
+    }
 }
