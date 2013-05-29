@@ -10,7 +10,7 @@ use Common\Model\Dao\DaoInterface as Dao;
  *
  * @package Common\Model\Mapper
  */
-abstract class Table implements MapperInterface
+abstract class Core implements MapperInterface
 {
     /**
      * @var Dao
