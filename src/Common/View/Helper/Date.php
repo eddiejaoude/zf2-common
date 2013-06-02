@@ -24,7 +24,7 @@ class Date extends AbstractHelper
         }
 
         $datetime = new \DateTime($date);
-        $friendly = $datetime->format('M \'y');
+        $friendly = $datetime->format('g:ia \o\n l jS F Y');
         return $friendly;
     }
 }
