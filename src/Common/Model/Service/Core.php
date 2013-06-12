@@ -8,7 +8,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 /**
  * Class Core
  *
- * @package Job\Model\Service
+ * @package Common\Model\Service
  */
 abstract class Core implements ServiceLocatorAwareInterface
 {
@@ -20,14 +20,16 @@ abstract class Core implements ServiceLocatorAwareInterface
     /**
      * @var ServiceLocatorInterface
      */
-    protected $services;
+    protected $serviceLocator;
 
     /**
      * @param Mapper $mapper
      */
     public function __construct(Mapper $mapper = null)
     {
-        $this->setMapper($mapper);
+        if ($mapper) {
+            $this->setMapper($mapper);
+        }
     }
 
     /**
@@ -53,7 +55,7 @@ abstract class Core implements ServiceLocatorAwareInterface
      */
     public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
     {
-        $this->services = $serviceLocator;
+        $this->serviceLocator = $serviceLocator;
     }
 
     /**
@@ -61,7 +63,7 @@ abstract class Core implements ServiceLocatorAwareInterface
      */
     public function getServiceLocator()
     {
-        return $this->services;
+        return $this->serviceLocator;
     }
 
 }

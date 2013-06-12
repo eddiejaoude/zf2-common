@@ -6,7 +6,7 @@ use Zend\View\Helper\AbstractHelper;
 
 /**
  * Class Date
- * @package Job\View\Helper
+ * @package Common\View\Helper
  */
 class Date extends AbstractHelper
 {

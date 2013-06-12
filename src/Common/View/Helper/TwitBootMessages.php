@@ -8,7 +8,7 @@ use Zend\View\Helper\FlashMessenger;
 /**
  * Class Messsages
  *
- * @package Job\View\Helper
+ * @package Common\View\Helper
  */
 class TwitBootMessages extends AbstractHelper
 {
