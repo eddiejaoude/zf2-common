@@ -15,5 +15,10 @@ interface MapperInterface
      * @return Dao
      */
     public function getDao();
+
+    /**
+     * @param Dao $dao
+     * @return MapperInterface
+     */
     public function setDao(Dao $dao);
 }

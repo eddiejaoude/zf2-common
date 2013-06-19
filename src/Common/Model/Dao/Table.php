@@ -1,31 +1,47 @@
 <?php
 namespace Common\Model\Dao;
 
+use Common\Model\Dao\Exception\Table\GatewayNotFound;
 use Zend\Db\TableGateway\TableGateway;
 use Common\Model\Dao\Exception\Table\NoTableName;
 
+/**
+ * Class Table
+ *
+ * @package Common\Model\Dao
+ */
 abstract class Table implements DaoInterface
 {
+    /**
+     * @var string
+     */
+    protected $tableName = '';
 
     /**
      * @var TableGateway
      */
-    protected $_tableGateway;
+    protected $tableGateway;
 
     /**
      * @param TableGateway $tableGateway
      */
-    public function __construct(TableGateway $tableGateway)
+    public function __construct(TableGateway $tableGateway = null)
     {
-        $this->_tableGateway = $tableGateway;
+        if (!empty($tableGateway)) {
+            $this->tableGateway = $tableGateway;
+        }
     }
 
     /**
+     * @throws Exception\Table\GatewayNotFound
      * @return TableGateway
      */
     public function getTableGateway()
     {
-        return $this->_tableGateway;
+        if (empty($this->tableGateway)) {
+            throw new GatewayNotFound('Gateway required, use $dao->setTableGateway($tableGateway)');
+        }
+        return $this->tableGateway;
     }
 
     /**
@@ -34,7 +50,8 @@ abstract class Table implements DaoInterface
      */
     public function setTableGateway(TableGateway $tableGateway)
     {
-        $this->_tableGateway = $tableGateway;
+        $this->tableGateway = $tableGateway;
+
         return $this;
     }
 
@@ -46,15 +63,19 @@ abstract class Table implements DaoInterface
         if (empty($this->tableName)) {
             throw new NoTableName('Table name required, set class property or use $dao->setTableName(\'TableName\')');
         }
+
         return $this->tableName;
     }
 
     /**
      * @param string $name
+     * @return DaoInterface
      */
     public function setTableName($name)
     {
-        $this->tableName = (string) $name;
+        $this->tableName = (string)$name;
+
+        return $this;
     }
 
 

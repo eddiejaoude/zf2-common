@@ -2,7 +2,7 @@
 namespace Common\Model\Mapper;
 
 use Common\Model\Mapper;
-use Common\Model\Mapper\Exception;
+use Common\Model\Mapper\Exception\NotFound;
 use Common\Model\Dao\DaoInterface as Dao;
 
 /**
@@ -15,7 +15,7 @@ abstract class Core implements MapperInterface
     /**
      * @var Dao
      */
-    protected $_dao;
+    protected $dao;
 
     public function __construct(Dao $dao = null)
     {
@@ -25,26 +25,27 @@ abstract class Core implements MapperInterface
     }
 
     /**
-     * @throws Exception\NotFound
+     * @throws NotFound
      * @return Dao
      */
     public function getDao()
     {
-        if (empty($this->_dao)) {
-            throw new Exception\NotFound('Dao not found. Use $mapper->setDao($dao)');
+        if (empty($this->dao)) {
+            throw new NotFound('Dao not found. Use $mapper->setDao($dao)');
         }
-        return $this->_dao;
+
+        return $this->dao;
     }
 
     /**
      * @param Dao $dao
      *
      * @internal param $Dao
-     * @return $this
+     * @return MapperInterface
      */
     public function setDao(Dao $dao)
     {
-        $this->_dao = $dao;
+        $this->dao = $dao;
 
         return $this;
     }
