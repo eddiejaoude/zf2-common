@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="Bootstrap.php" colors="true">
     <testsuites>
-        <testsuite name="Stylist Jobs">
+        <testsuite name="ZF2 Common">
             <file>./CommonTest/Model/Dao/TableTest.php</file>
             <file>./CommonTest/Model/Mapper/CoreTest.php</file>
         </testsuite>
