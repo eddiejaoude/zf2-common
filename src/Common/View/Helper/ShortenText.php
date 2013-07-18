@@ -19,7 +19,7 @@ class ShortenText extends AbstractHelper
      * @param string $divider
      * @return string
      */
-    public function __invoke($text, $length = 60, $divider = '...')
+    public function __invoke($text, $length = 50, $divider = '...')
     {
         if (strlen($text) < $length) {
             return $text;
