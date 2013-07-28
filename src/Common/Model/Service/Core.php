@@ -4,6 +4,7 @@ namespace Common\Model\Service;
 use Common\Model\Mapper\MapperInterface as Mapper;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Common\Model\Service\Exception\NotFound;
 
 /**
  * Class Core
@@ -15,7 +16,7 @@ abstract class Core implements ServiceLocatorAwareInterface
     /**
      * @var Mapper
      */
-    protected $_mapper;
+    protected $mapper;
 
     /**
      * @var ServiceLocatorInterface
@@ -23,21 +24,26 @@ abstract class Core implements ServiceLocatorAwareInterface
     protected $serviceLocator;
 
     /**
-     * @param Mapper $mapper
+     * @param Mapper|null $mapper
      */
     public function __construct(Mapper $mapper = null)
     {
-        if ($mapper) {
+        if (!empty($mapper)) {
             $this->setMapper($mapper);
         }
     }
 
     /**
-     * @return Mapper
+     * @throws NotFound
+     * @return Core
      */
     public function getMapper()
     {
-        return $this->_mapper;
+        if (empty($this->mapper)) {
+            throw new NotFound('Mapper not found. Use $service->setMapper($mapper)');
+        }
+
+        return $this->mapper;
     }
 
     /**
@@ -46,16 +52,19 @@ abstract class Core implements ServiceLocatorAwareInterface
      */
     public function setMapper(Mapper $mapper)
     {
-        $this->_mapper = $mapper;
+        $this->mapper = $mapper;
         return $this;
     }
 
     /**
      * @param ServiceLocatorInterface $serviceLocator
+     * @return Core
      */
     public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
     {
         $this->serviceLocator = $serviceLocator;
+
+        return $this;
     }
 
     /**
