@@ -4,7 +4,7 @@ namespace Common\View\Helper;
 use Zend\Stdlib\DateTime;
 use Zend\View\Helper\AbstractHelper;
 
-class Form extends AbstractHelper
+class TwitBootInline extends AbstractHelper
 {
 
     /**
