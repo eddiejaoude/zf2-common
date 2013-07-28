@@ -8,4 +8,4 @@ before_install:
  - composer install --no-dev
 
 script:
- - phpunit -c ./tests/
+ - phpunit -c ./test/
