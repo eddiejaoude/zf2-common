@@ -5,9 +5,9 @@ use PHPUnit_Framework_TestCase;
 use Common\Model\Mapper\Core;
 
 /**
- * Class TableTest
+ * Class CoreTest
  *
- * @package CommonTest\Model\Dao
+ * @package CommonTest\Model\Mapper
  */
 class CoreTest extends PHPUnit_Framework_TestCase
 {
