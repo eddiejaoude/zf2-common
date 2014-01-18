@@ -28,9 +28,9 @@ class TwitBootInline extends AbstractHelper
     {
         $field = $args[0];
 
-        $view = '<div class="control-group' . $this->isError($field) . '">';
-        $view .= '<label class="control-label" for="' . $field->getAttribute('name') . '">' . $field->getOption('label') . '</label>';
-        $view .= '<div class="controls">';
+        $view = '<div class="form-group' . $this->isError($field) . '">';
+        $view .= '<label  class="col-sm-2 control-label" for="' . $field->getAttribute('name') . '">' . $field->getOption('label') . '</label>';
+        $view .= '<div class="col-xs-4">';
         $view .= $this->getView()->{$method}($field);
         $view .= $this->getView()->formElementErrors()
             ->setMessageOpenFormat('<span class="help-inline">')
