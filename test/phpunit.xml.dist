@@ -3,7 +3,10 @@
     <testsuites>
         <testsuite name="ZF2 Common">
             <file>./CommonTest/Model/Dao/TableTest.php</file>
+            <file>./CommonTest/Model/Dao/RestTest.php</file>
             <file>./CommonTest/Model/Mapper/CoreTest.php</file>
+            <file>./CommonTest/Model/Service/CoreTest.php</file>
+            <file>./CommonTest/View/Helper/DateTest.php</file>
         </testsuite>
     </testsuites>
 
@@ -11,7 +14,10 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <file>../src/Common/Model/Dao/Table.php</file>
+            <file>../src/Common/Model/Dao/Rest.php</file>
             <file>../src/Common/Model/Mapper/Core.php</file>
+            <file>../src/Common/Model/Service/Core.php</file>
+            <file>../src/Common/View/Helper/Date.php</file>
         </whitelist>
     </filter>
 

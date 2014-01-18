@@ -2,11 +2,11 @@
 namespace Common\Model\Mapper\Exception;
 
 /**
- * Class NotFound
+ * Class Mapper
  *
  * @package Common\Model\Mapper\Exception
  */
-class NotFound extends Mapper
+class Mapper extends \Exception
 {
 
 }
