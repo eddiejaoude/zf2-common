@@ -5,6 +5,7 @@ use Zend\Http\Client as ZendClient;
 use Zend\Http\Request;
 use Zend\Http\Response;
 use Application\Model\Service\Audit;
+use Zend\Authentication\AuthenticationService;
 
 /**
  * Class Client
