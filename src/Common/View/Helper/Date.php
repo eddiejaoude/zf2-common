@@ -14,16 +14,20 @@ class Date extends AbstractHelper
     /**
      * Format date to user friendly
      *
-     * @param string $date
+     * @param $datetime
+     *
+     * @internal param string $date
      * @return string
      */
-    public function __invoke($date)
+    public function __invoke($datetime)
     {
-        if (empty($date) || '0000-00-00 00:00:00' == $date) {
+        if (empty($datetime) || '0000-00-00 00:00:00' == $datetime) {
             return '---';
         }
 
-        $datetime = new \DateTime($date);
+        if (!$datetime instanceof \DateTime) {
+            $datetime = new \DateTime($datetime);
+        }
         $friendly = $datetime->format('g:ia \o\n l jS F Y');
         return $friendly;
     }
