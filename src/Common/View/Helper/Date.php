@@ -14,12 +14,13 @@ class Date extends AbstractHelper
     /**
      * Format date to user friendly
      *
-     * @param $datetime
+     * @param \DateTime $datetime
+     * @param bool $dateOnly
      *
      * @internal param string $date
      * @return string
      */
-    public function __invoke($datetime)
+    public function __invoke($datetime, $dateOnly = false)
     {
         if (empty($datetime) || '0000-00-00 00:00:00' == $datetime) {
             return '---';
@@ -28,7 +29,13 @@ class Date extends AbstractHelper
         if (!$datetime instanceof \DateTime) {
             $datetime = new \DateTime($datetime);
         }
-        $friendly = $datetime->format('g:ia \o\n l jS F Y');
+
+        if ($dateOnly) {
+            $friendly = $datetime->format('l jS F Y');
+        } else {
+            $friendly = $datetime->format('g:ia \o\n l jS F Y');
+        }
+
         return $friendly;
     }
 }
